@@ -1,4 +1,4 @@
-# Infinite Scroll Web Widget
+# Infinite Scroll Widget
 
 Create/decorate an element which loads more content automatically when the scroll position reaches either the top or bottom.
 
@@ -21,6 +21,7 @@ Notes:
 
 - `fetchTop` and `fetchBottom` are optional
 - the first param may be a tagname, hyperscript template string, or existing DOM element
+- When the element scrolls away from the top, this adds a `scrolled` class to do custom styling
 
 ## LICENSE
 

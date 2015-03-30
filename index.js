@@ -12,10 +12,21 @@ module.exports = function (el, opts) {
     el = h(el)
   el.onscroll  = onscroll
 
+  var atTop = true
   var fetching = false
   function onscroll (e) {
     if (fetching)
       return
+
+    // toggle "scrolled" class
+    if (atTop && el.scrollTop > 0) {
+      atTop = false
+      el.classList.add('scrolled')
+    } else if (!atTop && el.scrollTop === 0) {
+      atTop = true
+      el.classList.remove('scrolled')
+    }
+
     if (el.offsetHeight + el.scrollTop >= el.scrollHeight) {
       // hit bottom
       if (typeof opts.fetchBottom == 'function') {
